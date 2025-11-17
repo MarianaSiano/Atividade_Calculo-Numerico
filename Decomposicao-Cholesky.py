@@ -18,3 +18,17 @@ is_pos_def = np.all(eigenvalues > 0) # Verifica se são positivos
 print('A é simétrica? ', is_symmetric)
 print('Autovalores de A => ', eigenvalues)
 print('A é definida positiva? ', is_pos_def)
+
+# b) Decomposição de Cholesky
+G = cholesky(A, lower=True)
+print('Matriz G da Decomposição de Cholesky')
+
+# c) Determinante via Cholesky
+det_A = np.prod(np.diag(G)) ** 2
+print('Determinante de A => ', det_A)
+
+# d) Solução do Sistema Ax = b usando G
+# Resolva Gy = b, depois G ^ T x = y
+y = solve(G, b, lower=True)
+x = solve(G.T, y, lower=False)
+print('Solução x => ', x)

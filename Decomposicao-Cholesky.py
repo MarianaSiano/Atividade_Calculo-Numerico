@@ -11,7 +11,7 @@ A = np.array([
 b = np.array([0, 6, 5])
 
 # a) Verificação das condições para Cholesky
-is_symmetric = np.allclose(A.T) # Verifica se é simétrica
+is_symmetric = np.allclose(A, A.T) # Verifica se é simétrica
 eigenvalues = np.linalg.eigvals(A) # Obtém autovalores
 is_pos_def = np.all(eigenvalues > 0) # Verifica se são positivos
 
